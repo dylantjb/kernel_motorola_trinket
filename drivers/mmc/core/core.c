@@ -1225,7 +1225,7 @@ static int mmc_start_request(struct mmc_host *host, struct mmc_request *mrq)
 
 	err = mmc_mrq_prep(host, mrq);
 	if (err)
-		return err;
+		goto power_cycle;
 
 	mmc_host_clk_hold(host);
 	led_trigger_event(host->led, LED_FULL);
